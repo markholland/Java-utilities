@@ -4,8 +4,8 @@ public class Sorting
 {
 	/**
 	 * Sorts ascendently a given array using the fastest algorithm available.
-	 * @note T(n)=[n nlog(n)]
-	 * @uses heapSort
+	 * T(n)=[n nlog(n)]
+	 * @see #countingSort(int[])
 	 */
 	public static void sort( int[] array )
 	{
@@ -14,10 +14,10 @@ public class Sorting
 
 	/**
 	 * Selection Sort sorting algorithm.
-	 * @note T(n)=n^2
+	 * T(n)=n^2
 	 * @param array Array to be ordered ascendently.
-	 * @uses swap
-	 * @uses posMin
+	 * @see #swap(int[], int, int)
+	 * @see #posMin(int[])
 	 */
 	public static void selectionSort( int[] array )
 	{
@@ -30,9 +30,9 @@ public class Sorting
 
 	/**
 	 * Insertion Sort sorting algorithm.
-	 * @note T(n)=[n, n^2]
+	 * T(n)=[n, n^2]
 	 * @param array Array to be ordered ascendently.
-	 * @uses swap
+	 * @see #swap(int[], int, int)
 	 */
 	public static void insertionSort( int[] array )
 	{
@@ -49,9 +49,9 @@ public class Sorting
 
 	/**
 	 * Bubble Sort sorting algorithm.
-	 * @note T(n)=n^2
+	 * T(n)=n^2
 	 * @param array Array to be ordered ascendently.
-	 * @uses swap
+	 * @see #swap(int[], int, int)
 	 */
 	public static void bubbleSort( int[] array )
 	{
@@ -71,11 +71,11 @@ public class Sorting
 
 	/**
 	 * Internal method that applies the Merge Sort algorithm in a given range.
-	 * @note T(n)=nlog(n)
+	 * T(n)=nlog(n)
 	 * @param array Array to be ordered.
 	 * @param start First index of the range.
 	 * @param end Last index of the range.
-	 * @uses naturalMerge
+	 * @see #naturalMerge(int[], int, int, int)
 	 */
 	private static void mergeSort( int[] array, int start, int end )
 	{
@@ -90,7 +90,7 @@ public class Sorting
 
 	/**
 	 * Internal method that merges two parts of a given array ordered.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array to be ordered.
 	 * @param start Start of the range of values of the "first" array.
 	 * @param hald End of the range of values of the "first" array.
@@ -121,7 +121,7 @@ public class Sorting
 
 	/**
 	 * Internal method that merges two ordered arrays into a new ordered array.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param a First array.
 	 * @param b Second array.
 	 * @return An ordered array with the values of the given arrays,
@@ -151,9 +151,9 @@ public class Sorting
 
 	/**
 	 * Quick Sort sorting algorithm.
-	 * @note T(n)=[nlog(n) n^2]
+	 * T(n)=[nlog(n) n^2]
 	 * @param array Array to be ordered.
-	 * @uses quickSort
+	 * @see #quickSort(int[], int, int)
 	 */
 	public static void quickSort( int[] array )
 	{
@@ -162,11 +162,10 @@ public class Sorting
 
 	/**
 	 * Internal method that applies Quick Sort sorting algorithm in a given range.
-	 * @note T(n)=[nlog(n) n^2]
+	 * T(n)=[nlog(n) n^2]
 	 * @param array Array to be ordered.
 	 * @param left Start of the range.
 	 * @param right End of the range.
-	 * @uses quickSort
 	 */
 	private static void quickSort( int[] array, int left, int right )
 	{
@@ -184,7 +183,7 @@ public class Sorting
 
 	/**
 	 * Internal method for Quick Sort algorithm that moves values to the first or the second part of an array.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array to be partitioned.
 	 * @param left Start of the range of the array to be partitioned.
 	 * @param right End of the range of the array to be partitioned.
@@ -213,9 +212,10 @@ public class Sorting
 
 	/**
 	 * Heap Sort sorting algorithm.
-	 * @note T(n)=[n nlog(n)]
+	 * T(n)=[n nlog(n)]
 	 * @param array Array to be ordered
-	 * @uses 
+	 * @see #createHeap(int[]) 
+	 * @see #heapSort(int[], int[])
 	 */
 	public static void heapSort( int[] array )
 	{
@@ -227,10 +227,10 @@ public class Sorting
 
 	/**
 	 * Internal method to sort using Heap Sort algorithm.
-	 * @note T(n)=[n nlog(n)]
+	 * T(n)=[n nlog(n)]
 	 * @param array Array to be sorted. 
 	 * @param heap Array to be used as heap.
-	 * @uses createHeap
+	 * @see #createHeap(int[])
 	 */
 	private static void heapSort( int[] array, int[] heap )
 	{
@@ -292,9 +292,9 @@ public class Sorting
 
 	/**
 	 * Internal method to create the Heap of the Heap Sort algorithm.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param heap Array to be used as heap.
-	 * @uses heapAdd
+	 * @see #heapApp(int, int, int[])
 	 */
 	private static void createHeap( int[] heap )
 	{
@@ -308,12 +308,12 @@ public class Sorting
 
 	/**
 	 * Internal method to add items to the Heap of the Heap Sort algorithm.
-	 * @note T(n)=log(n)
+	 * T(n)=log(n)
 	 * @param size Current index of the last non-null item in the Heap.
 	 * @param e Item to be added.
 	 * @param array Array to be used as Heap.
 	 * @return New index of the last non-null item in the Heap.
-	 * @uses swap
+	 * @see #swap(int[], int, int)
 	 */
 	private static int heapAdd( int length, int element, int[] heap )
 	{
@@ -338,7 +338,7 @@ public class Sorting
 
 	/**
 	 * Counting Sort sorting algorithm.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array to be sorted.
 	 */
 	public static void countingSort( int[] array )
@@ -362,7 +362,7 @@ public class Sorting
 	}
 
 	/**
-	 * @note METHOD NOT IMPLEMENTED
+	 * METHOD NOT IMPLEMENTED
 	 */
 	public static void radixSort( int[] array )
 	{
@@ -370,7 +370,7 @@ public class Sorting
 	}	
 
 	/**
-	 * @note METHOD NOT IMPLEMENTED
+	 * METHOD NOT IMPLEMENTED
 	 */
 	public static void bucketSort( int[] array )
 	{
@@ -379,7 +379,7 @@ public class Sorting
 
 	/**
 	 * Retrieves the index of the lowest value in the array.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array with data.
 	 * @return Index of the lowest value.
 	 */
@@ -390,10 +390,10 @@ public class Sorting
 
 	/**
 	 * Retrieves the lowest value in the array.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array with data.
 	 * @return Lowest value in the array.
-	 * @uses posMin
+	 * @see #posMin(int[])
 	 */
 	public static int getMin( int[] array )
 	{
@@ -402,7 +402,7 @@ public class Sorting
 
 	/**
 	 * Internal method for obtaning the minimum value in a range.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array with data.
 	 * @param start Start of the range.
 	 * @param end End of the range.
@@ -420,7 +420,7 @@ public class Sorting
 
 	/**
 	 * Retrieves the index of the highest value in the array.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array with data.
 	 * @return Index of the highest value.
 	 */
@@ -431,10 +431,10 @@ public class Sorting
 
 	/**
 	 * Retrieves the highest value in the array.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array with data.
 	 * @return Highest value in the array.
-	 * @uses posMin
+	 * @see #posMax(int[])
 	 */
 	public static int getMax( int[] array )
 	{
@@ -443,7 +443,7 @@ public class Sorting
 
 	/**
 	 * Internal method for obtaning the maximum value in a range.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array with data.
 	 * @param start Start of the range.
 	 * @param end End of the range.
@@ -461,7 +461,7 @@ public class Sorting
 
 	/**
 	 * Internal method for exchanging two values in an array.
-	 * @note T(n)=1
+	 * T(n)=1
 	 * @param array Array with data.
 	 * @param i One index to be exchanged.
 	 * @param j Other index to be exchanged.

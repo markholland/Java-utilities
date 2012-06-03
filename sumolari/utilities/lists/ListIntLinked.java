@@ -21,11 +21,6 @@ public class ListIntLinked extends ListInt
 		return ( this.size == 0 );
 	}
 
-	@Override public int size()
-	{
-		return this.size;
-	}
-
 	@Override public boolean search( int x )
 	{
 		this.begin();
@@ -57,9 +52,19 @@ public class ListIntLinked extends ListInt
 		return false;
 	}
 
+	@Override public int size()
+	{
+		return this.size;
+	}
+
 	@Override public void begin()
 	{
 		this.cursor = this.first;
+	}
+
+	@Override public void end()
+	{
+		this.cursor = this.last;
 	}
 
 	@Override public void next()
@@ -72,9 +77,9 @@ public class ListIntLinked extends ListInt
 		this.cursor = this.cursor.previous();
 	}
 
-	@Override public void end()
+	@Override public boolean isAtTheEnd()
 	{
-		this.cursor = this.last;
+		return ( this.cursor == this.last );
 	}
 
 	@Override public int get()
@@ -116,9 +121,9 @@ public class ListIntLinked extends ListInt
 
 		if ( last != null )
 		{
-			last.setNext( newElement );
+			this.last.setNext( newElement );
 			newElement.setPrevious( last );
-			last = newElement;
+			this.last = newElement;
 		}
 		else
 		{
@@ -130,13 +135,13 @@ public class ListIntLinked extends ListInt
 
 	@Override public void pushInOrder( int x )
 	{
-		if ( size == 0 )
+		if ( this.isEmpty() )
 		{
-			insert( x );
+			this.insert( x );
 		}
 		else
 		{
-			NodeInt node = last;
+			NodeInt node = this.last;
 			while ( node != null && node.value() >= x )
 			{
 				node = node.previous();
@@ -216,7 +221,7 @@ public class ListIntLinked extends ListInt
 
 	@Override public void sortValues()
 	{
-		mergeSort();
+		this.mergeSort();
 	}
 
 	@Override public void clear()

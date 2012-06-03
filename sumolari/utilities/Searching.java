@@ -4,7 +4,7 @@ public class Searching
 {
 	/**
 	 * Retrieves the position of a given value in an array.
-	 * @note T(n)=n
+	 * T(n)=n
 	 * @param array Array of data.
 	 * @param x Value to be searched.
 	 * @return Index of that value.
@@ -24,7 +24,7 @@ public class Searching
 
 	/**
 	 * Retrieves the position of a given value in an ordered array.
-	 * @note T(n)=log(n)
+	 * T(n)=log(n)
 	 * @param array Array of data.
 	 * @param x Value to be searched.
 	 * @return Index of that value.

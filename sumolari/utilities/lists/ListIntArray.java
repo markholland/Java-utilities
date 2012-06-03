@@ -1,5 +1,6 @@
 package sumolari.utilities.lists;
 
+import sumolari.utilities.Sorting;
 import sumolari.utilities.ListInt;
 import sumolari.utilities.exceptions.ListOverflowException;
 
@@ -86,7 +87,7 @@ public class ListIntArray extends ListInt
 		}
 	}	
 	
-	public boolean isAtTheEnd() 
+	@Override public boolean isAtTheEnd() 
 	{ 
 		return ( this.cursor >= this.size - 1 ); 
 	}
@@ -94,18 +95,6 @@ public class ListIntArray extends ListInt
 	@Override public int get() 
 	{
 		return this.theArray[cursor];
-	}
-
-	@Override public void remove()
-	{
-		int aux = this.theArray[ cursor ];
-
-		for( int k = cursor + 1; k < size; k++ )
-		{
-			theArray[k-1] = theArray[k];
-		}
-
-		size--;
 	}
 
 	@Override public void insert( int x ) throws ListOverflowException
@@ -127,16 +116,73 @@ public class ListIntArray extends ListInt
 		}
 	}
 
-	@Override public void pushInOrder( int x ) throws ListOverflowException 
+	@Override public void pushBack( int x )
 	{
-		/* TO BE IMPLEMENTED */
+		if ( this.size() == MAX )
+		{
+			throw new ListOverflowException();
+		}
+		else 
+		{
+			this.theArray[ size++ ] = x;
+			this.end();
+		}
+	}
 
-		throw new ListOverflowException();
+	@Override public void pushInOrder( int x )
+	{
+		if ( this.isEmpty() )
+		{
+			this.insert( x );
+		}
+		else
+		{
+
+			int index = this.size;
+			while ( index >= 0 && theArray[ index ] >= x )
+			{
+				index--;
+			}
+
+			if ( index < 0 ) 
+			{
+				try
+				{
+					this.pushFront( x );
+				}
+				catch ( ListOverflowException loe )
+				{
+					SumolariExceptionManager.catchException( loe );
+				}
+			}
+			else if ( index == this.size )
+			{
+				this.pushBack( x );
+			}
+			else
+			{
+				this.cursor = index;
+				this.cursor.next();
+				this.insert( x );
+			}
+		}
+	}
+
+	@Override public void remove()
+	{
+		int aux = this.theArray[ cursor ];
+
+		for ( int k = this.cursor + 1; k < this.size; k++ )
+		{
+			this.theArray[ k - 1 ] = this.theArray[ k ];
+		}
+
+		this.size--;
 	}
 
 	@Override public void sortValues() 
 	{
-		/* TO BE IMPLEMENTED */ 
+		Sorting.sort( this );
 	}
 
 	@Override public void clear()
