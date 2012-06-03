@@ -116,7 +116,7 @@ public class ListIntArray extends ListInt
 		}
 	}
 
-	@Override public void pushBack( int x )
+	@Override public void pushBack( int x ) throws ListOverflowException
 	{
 		if ( this.size() == MAX )
 		{
@@ -129,7 +129,7 @@ public class ListIntArray extends ListInt
 		}
 	}
 
-	@Override public void pushInOrder( int x )
+	@Override public void pushInOrder( int x ) throws ListOverflowException
 	{
 		if ( this.isEmpty() )
 		{
@@ -146,14 +146,7 @@ public class ListIntArray extends ListInt
 
 			if ( index < 0 ) 
 			{
-				try
-				{
-					this.pushFront( x );
-				}
-				catch ( ListOverflowException loe )
-				{
-					SumolariExceptionManager.catchException( loe );
-				}
+				this.pushFront( x );
 			}
 			else if ( index == this.size )
 			{
@@ -162,7 +155,7 @@ public class ListIntArray extends ListInt
 			else
 			{
 				this.cursor = index;
-				this.cursor.next();
+				this.cursor++;
 				this.insert( x );
 			}
 		}
@@ -182,7 +175,7 @@ public class ListIntArray extends ListInt
 
 	@Override public void sortValues() 
 	{
-		Sorting.sort( this );
+		Sorting.sort( this.theArray );
 	}
 
 	@Override public void clear()

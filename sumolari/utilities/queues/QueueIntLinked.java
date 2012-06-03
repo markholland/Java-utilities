@@ -53,9 +53,12 @@ public class QueueIntLinked extends QueueInt
 		int x = this.first.value();
 		this.first = this.first.next();
 
-		if ( first == null ) last = null;
+		if ( this.first == null )
+		{
+			this.last = null;
+		}
 
-		size--;
+		this.size--;
 
 		return x;
 	}
@@ -69,7 +72,7 @@ public class QueueIntLinked extends QueueInt
 	@Override public String toString()
 	{
 		String output = "{ ";
-		NodeInt aNode = first;
+		NodeInt aNode = this.first;
 
 		while ( aNode != null )
 		{
