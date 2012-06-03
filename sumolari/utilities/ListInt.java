@@ -75,7 +75,7 @@ public class ListInt
 
 	/**
 	 * Removes the given value from this list.
-	 * @param int x Value to be removed.
+	 * @param x Value to be removed.
 	 * @return True when the value was found and removed, false when not.
 	 */
 	public boolean remove( int x )
