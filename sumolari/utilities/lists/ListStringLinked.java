@@ -4,6 +4,9 @@ import sumolari.utilities.ListString;
 import sumolari.utilities.nodes.NodeString;
 import sumolari.utilities.exceptions.*;
 
+/**
+ * This class is an implementation of a List of Strings by means of linked structures.
+ */
 public class ListStringLinked extends ListString
 {
 	private NodeString		first;
@@ -42,7 +45,7 @@ public class ListStringLinked extends ListString
 
 	@Override public boolean searchNext( String x )
 	{
-		next();
+		this.next();
 	
 		while ( this.cursor != null && cursor.value().equals( x ) )
 		{
@@ -77,6 +80,11 @@ public class ListStringLinked extends ListString
 		this.cursor = this.last;
 	}
 
+	@Override public boolean isAtTheEnd()
+	{
+		return ( this.cursor == this.last );
+	}
+
 	@Override public String get()
 	{
 		return this.cursor.value();
@@ -108,6 +116,8 @@ public class ListStringLinked extends ListString
 		}
 
 		this.cursor = newElement;
+
+		this.size++;
 	}
 
 	@Override public void pushBack( String x )
@@ -126,6 +136,8 @@ public class ListStringLinked extends ListString
 			this.last 	= newElement;
 			this.cursor = newElement;
 		}
+
+		this.size++;
 	}
 
 	@Override public void pushInOrder( String x )
@@ -216,7 +228,7 @@ public class ListStringLinked extends ListString
 
 	@Override public void sortValues()
 	{
-		mergeSort();
+		this.mergeSort();
 	}
 
 	@Override public boolean checkIfAscendingOrder()
@@ -272,9 +284,14 @@ public class ListStringLinked extends ListString
 
 		while ( !a.isEmpty() && !b.isEmpty() )
 		{
+			System.out.println( "ASDASDASDASD " + a.get() + " " + b.get() );
 			if ( a.get().compareTo( b.get() ) <= 0 )
 			{
 				this.pushBack( a.popFront() );
+			}
+			else
+			{
+				this.pushBack( b.popFront() );
 			}
 		}
 
@@ -331,4 +348,5 @@ public class ListStringLinked extends ListString
 			this.pushInOrder( aux.popFront() );
 		}
 	}
+
 }

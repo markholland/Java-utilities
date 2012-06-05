@@ -4,9 +4,8 @@ import sumolari.utilities.nodes.NodeInt;
 import sumolari.utilities.QueueInt;
 
 /**
- * This class is not documented. See the parent class <code>StackInt</code> for more information.
+ * This class is an implementation of a Queue of integer numbers (int) by means of linked structures.
  */
-
 public class QueueIntLinked extends QueueInt
 {
 	private NodeInt		first;

@@ -8,9 +8,8 @@ import sumolari.utilities.exceptions.StackOverflowException;
 import sumolari.utilities.exceptions.ListOverflowException;
 
 /**
- * This class is not documented. See the parent class <code>StackInt</code> for more information.
+ * This class is an implementation of a Stack of integer numbers (int) by means of a list.
  */
-
 public class StackIntList extends StackInt
 {
 	private ListInt	list;

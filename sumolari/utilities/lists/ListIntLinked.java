@@ -4,6 +4,9 @@ import sumolari.utilities.ListInt;
 import sumolari.utilities.nodes.NodeInt;
 import sumolari.utilities.exceptions.*;
 
+/**
+ * This class is an implementation of a List of integer numbers (int) by means of linked structures.
+ */
 public class ListIntLinked extends ListInt
 {
 	private NodeInt		first;
@@ -37,7 +40,7 @@ public class ListIntLinked extends ListInt
 
 	@Override public boolean searchNext( int x )
 	{
-		next();
+		this.next();
 	
 		while ( this.cursor != null && cursor.value() != x )
 		{

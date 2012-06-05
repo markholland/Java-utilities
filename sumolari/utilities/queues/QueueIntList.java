@@ -9,9 +9,8 @@ import sumolari.utilities.exceptions.QueueOverflowException;
 import sumolari.utilities.exceptions.ListOverflowException;
 
 /**
- * This class is not documented. See the parent class <code>QueueInt</code> for more information.
+ * This class is an implementation of a Queue of integer numbers (int) by means of a list.
  */
-
 public class QueueIntList extends QueueInt
 {
 	private ListInt		list;

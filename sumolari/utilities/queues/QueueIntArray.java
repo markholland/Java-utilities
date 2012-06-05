@@ -5,9 +5,8 @@ import sumolari.utilities.exceptions.SumolariExceptionManager;
 import sumolari.utilities.QueueInt;
 
 /**
- * This class is not documented. See the parent class <code>StackInt</code> for more information.
+ * This class is an implementation of a Queue of integer numbers (int) by means of an array.
  */
-
 public class QueueIntArray extends QueueInt
 {
 	private int[]				array;

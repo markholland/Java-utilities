@@ -4,6 +4,9 @@ import sumolari.utilities.Sorting;
 import sumolari.utilities.ListInt;
 import sumolari.utilities.exceptions.ListOverflowException;
 
+/**
+ * This class is an implementation of a List of integer numbers (int) by means of arrays.
+ */
 public class ListIntArray extends ListInt
 {
 	private 				int[]	theArray;
@@ -16,7 +19,7 @@ public class ListIntArray extends ListInt
 		this.clear();
 	}
 
-	@Override public boolean isEmpty () 
+	@Override public boolean isEmpty() 
 	{ 
 		return ( this.size == 0 ); 
 	}
@@ -33,7 +36,7 @@ public class ListIntArray extends ListInt
 	{
 		this.next();
 
-		while( this.cursor < this.size && this.theArray[cursor] != x )
+		while( this.cursor < this.size && this.theArray[ cursor ] != x )
 		{
 			this.next();
 		}
@@ -94,7 +97,7 @@ public class ListIntArray extends ListInt
 
 	@Override public int get() 
 	{
-		return this.theArray[cursor];
+		return this.theArray[ cursor ];
 	}
 
 	@Override public void insert( int x ) throws ListOverflowException
@@ -158,6 +161,7 @@ public class ListIntArray extends ListInt
 				this.cursor++;
 				this.insert( x );
 			}
+			
 		}
 	}
 

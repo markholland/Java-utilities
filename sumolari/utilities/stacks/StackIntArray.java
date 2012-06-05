@@ -5,9 +5,8 @@ import sumolari.utilities.exceptions.SumolariExceptionManager;
 import sumolari.utilities.StackInt;
 
 /**
- * This class is not documented. See the parent class <code>StackInt</code> for more information.
+ * This class is an implementation of a Stack of integer numbers (int) by means of an array.
  */
-
 public class StackIntArray extends StackInt
 {
 	private int[] 				array;

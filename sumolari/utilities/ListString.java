@@ -3,6 +3,13 @@ package sumolari.utilities;
 import sumolari.utilities.lists.ListStringLinked;
 import sumolari.utilities.exceptions.ListOverflowException;
 
+/**
+ * This class represents a List of Strings.
+ * This kind of structures can be implemented in different ways, so this class is just a wrapper that can be use
+ * regardless which implementation is used internally.
+ * This class should not be used to create new objects: it should be used to specify datatypes of parameters and
+ * work with Lists of Strings in an abstract way.
+ */
 public class ListString
 {
 	/**
@@ -17,15 +24,15 @@ public class ListString
 	public boolean isEmpty() { return true; }
 
 	/**
-	 * Returns if it is found the given number in this list.
-	 * @param x Number to be searched
+	 * Returns if it is found the given string in this list.
+	 * @param x String to be searched
 	 * @return True if it is found, false if not.
 	 */
 	public boolean search( String x ) { return false; }
 
 	/**
-	 * Returns if it is found the given number in this list, after the current position of the cursor.
-	 * @param x Number to be searched.
+	 * Returns if it is found the given string in this list, after the current position of the cursor.
+	 * @param x String to be searched.
 	 * @return True if it is found, false if not.
 	 */
 	public boolean searchNext( String x ) { return false; }
@@ -159,7 +166,6 @@ public class ListString
 	 * Inserts a new value in order, assuming this list is ordered.
 	 * @param x Value to be inserted.
 	 * @exception ListOverflowException Thrown when working with the array implementation and the maximum size of the array wil be exceeded if the operation is performed.
-	 * @note This method is NOT implemented in the implementation by means of array.
 	 */
 	public void pushInOrder( String x ) throws ListOverflowException { }
 
@@ -189,7 +195,6 @@ public class ListString
 
 	/**
 	 * Sorts the values stored at this list.
-	 * @note This method is NOT implemented in the implementation by means of array.
 	 */
 	public void sortValues() { }
 
@@ -327,6 +332,22 @@ public class ListString
 		}
 
 		return c;
+	}
+
+	@Override public String toString()
+	{
+		String output = "\n{\n";
+
+		this.begin();
+		while ( !this.isAtTheEnd() )
+		{
+			output += "\t" + this.get() + "\n";
+			this.next();
+		}
+
+		output += "}";
+
+		return output;
 	}
 
 }

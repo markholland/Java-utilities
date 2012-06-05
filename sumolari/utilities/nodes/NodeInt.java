@@ -1,5 +1,9 @@
 package sumolari.utilities.nodes;
 
+/**
+ * This class represents a Node that stores an integer number (int), as well as references to the following and the previous Node in a list.
+ * It is used in the implementation of Stacks, Queues and Lists by means of linked structures.
+ */
 public class NodeInt
 {
 	private int 		value;

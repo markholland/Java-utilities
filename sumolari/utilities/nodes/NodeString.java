@@ -1,5 +1,9 @@
 package sumolari.utilities.nodes;
 
+/**
+ * This class represents a Node that stores a String, as well as references to the following and the previous Node in a list.
+ * It is used in the implementation of Stacks, Queues and Lists by means of linked structures.
+ */
 public class NodeString
 {
 	private String 			value;

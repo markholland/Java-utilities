@@ -1,5 +1,9 @@
 package sumolari.utilities.exceptions;
 
+/**
+ * This class represents the exception that raises when trying to add a new element to a Queue which is full.
+ * This usually happens when the Queue is internally implemented by means of an array.
+ */
 public class QueueOverflowException extends Exception
 {
 

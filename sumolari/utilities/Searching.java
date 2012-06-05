@@ -1,5 +1,8 @@
 package sumolari.utilities;
 
+/**
+ * This class features searching methods for arrays of integer numbers.
+ */
 public class Searching
 {
 	/**

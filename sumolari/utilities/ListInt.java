@@ -3,6 +3,13 @@ package sumolari.utilities;
 import sumolari.utilities.exceptions.ListOverflowException;
 import sumolari.utilities.lists.ListIntLinked;
 
+/**
+ * This class represents a List of integer numbers (int).
+ * This kind of structures can be implemented in different ways, so this class is just a wrapper that can be use
+ * regardless which implementation is used internally.
+ * This class should not be used to create new objects: it should be used to specify datatypes of parameters and
+ * work with Lists of integer numbers in an abstract way.
+ */
 public class ListInt
 {
 	/**
@@ -320,4 +327,21 @@ public class ListInt
 
 		return c;
 	}
+
+	@Override public String toString()
+	{
+		String output = "\n{\n";
+
+		this.begin();
+		while ( !this.isAtTheEnd() )
+		{
+			output += this.get() + "\n";
+			this.next();
+		}
+
+		output += "}";
+
+		return output;
+	}
+	
 }

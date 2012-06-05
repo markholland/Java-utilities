@@ -1,5 +1,8 @@
 package sumolari.utilities;
 
+/**
+ * This class features different sorting algorithms for arrays of integer numbers and arrays of Strings.
+ */
 public class Sorting
 {
 	/**
@@ -10,6 +13,16 @@ public class Sorting
 	public static void sort( int[] array )
 	{
 		countingSort( array );
+	}
+
+	/**
+	 * Sorts ascendently a given array using the fastest algorithm available.
+	 * T(n)=nlog(n)
+	 * @see #mergeSort(String[])
+	 */
+	public static void sort( String[] array )
+	{
+		mergeSort( array );
 	}
 
 	/**
@@ -64,6 +77,13 @@ public class Sorting
 		}
 	}
 
+	/**
+	 * Merge Sort sorting algorithm.
+	 * T(n)=nlog(n)
+	 * @param array Array to be ordered.
+	 * @see #mergeSort(int[], int, int)
+	 * @see #naturalMerge(int[], int, int, int)
+	 */
 	public static void mergeSort( int[] array )
 	{
 		mergeSort( array, 0, array.length - 1 );
@@ -116,7 +136,9 @@ public class Sorting
 		while ( b <= end ) aux[ c++ ] = array[ b++ ];
 
 		for ( int i = 0; i < aux.length; i++ )
+		{
 			array[ start + i ] = aux[ i ];
+		}
 	}
 
 	/**
@@ -134,6 +156,100 @@ public class Sorting
 		while ( i < a.length && j < b.length )
 		{
 			if ( a[ i ] < b[ j ] )
+			{
+				c[ k++ ] = a[ i++ ];
+			}
+			else
+			{
+				c[ k++ ] = b[ j++ ];
+			}
+		}
+
+		while ( i < a.length ) c[ k++ ] = a[ i++ ];
+		while ( j < b.length ) c[ k++ ] = b[ j++ ];
+
+		return c;
+	}
+
+	/**
+	 * Merge Sort sorting algorithm.
+	 * T(n)=nlog(n)
+	 * @param array Array to be ordered.
+	 * @see #mergeSort(String[], int, int)
+	 * @see #naturalMerge(String[], int, int, int)
+	 */
+	public static void mergeSort( String[] array )
+	{
+		mergeSort( array, 0, array.length - 1 );
+	}
+
+	/**
+	 * Internal method that applies the Merge Sort algorithm in a given range.
+	 * T(n)=nlog(n)
+	 * @param array Array to be ordered.
+	 * @param start First index of the range.
+	 * @param end Last index of the range.
+	 * @see #naturalMerge(String[], int, int, int)
+	 */
+	private static void mergeSort( String[] array, int start, int end )
+	{
+		if ( start < end )
+		{
+			int half = ( start + end ) / 2;
+			mergeSort( array, start, half );
+			mergeSort( array, half + 1, end );
+			naturalMerge( array, start, half, end );
+		}
+	}
+
+	/**
+	 * Internal method that merges two parts of a given array ordered.
+	 * T(n)=n
+	 * @param array Array to be ordered.
+	 * @param start Start of the range of values of the "first" array.
+	 * @param hald End of the range of values of the "first" array.
+	 * @param end End of the range of values of the "second" array.
+	 */
+	private static void naturalMerge( String[] array, int start, int half, int end )
+	{
+		String[] aux = new String[ end - start + 1 ];
+		int a = start, b = half + 1, c = 0;
+		while ( array[ a ] != null && array[ b ] != null && a <= half && b <= end )
+		{
+			if ( array[ a ].compareTo( array[ b ] ) < 0 )
+			{
+				aux[ c++ ] = array[ a++ ];
+			}
+			else
+			{
+				aux[ c++ ] = array[ b++ ];
+			}
+		}
+
+		while ( a <= half ) aux[ c++ ] = array[ a++ ];
+		while ( b <= end ) aux[ c++ ] = array[ b++ ];
+
+		for ( int i = 0; i < aux.length; i++ )
+		{
+			array[ start + i ] = aux[ i ];
+		}
+	}
+
+	/**
+	 * Internal method that merges two ordered arrays into a new ordered array.
+	 * T(n)=n
+	 * @param a First array.
+	 * @param b Second array.
+	 * @return An ordered array with the values of the given arrays,
+	 */
+	private static String[] naturalMerge( String[] a, String[] b )
+	{
+		String[] c = new String[ a.length + b.length ];
+		int k = 0, i = 0, j = 0;
+
+		while ( i < a.length && j < b.length )
+		{
+			if ( a[ i ].compareTo( b[ j ] ) < 0 )
 			{
 				c[ k++ ] = a[ i++ ];
 			}
@@ -361,21 +477,25 @@ public class Sorting
 		}
 	}
 
-	/**
+	/*
 	 * METHOD NOT IMPLEMENTED
 	 */
+	/*
 	public static void radixSort( int[] array )
 	{
 
-	}	
+	}
+	*/	
 
-	/**
+	/*
 	 * METHOD NOT IMPLEMENTED
 	 */
+	/*
 	public static void bucketSort( int[] array )
 	{
 
 	}
+	*/
 
 	/**
 	 * Retrieves the index of the lowest value in the array.
