@@ -16,8 +16,7 @@ public class NodeInt
 	 */
 	public NodeInt( int value )
 	{
-		this.value = value;
-		this.next = null;
+		 this( value, null, null );
 	}
 
 	/**
@@ -27,8 +26,7 @@ public class NodeInt
 	 */
 	public NodeInt( int value, NodeInt next )
 	{
-		this.value = value;
-		this.next = next;
+		this( value, next, null );
 	}
 
 	/**
