@@ -181,17 +181,17 @@ public class ListIntLinked extends ListInt
 		}
 		else if ( this.cursor == this.first )
 		{
-			this.first 	= this.cursor.next();
-			this.cursor = this.cursor.next();
-			
-			this.size--;	
-
-			if ( size == 0 )
-			{
-				this.first 	= null;
-				this.last 	= null;
-				this.cursor = null;
-			}
+			if ( this.size == 1 )
+            		{
+            			this.first 	= null;
+            			this.last 	= null;
+            			this.cursor 	= null;
+            			--this.size;
+            		}else{
+            			this.cursor = this.first = this.cursor.getNext();
+	            		this.first.setPrevious( null );
+            			--this.size;
+        		}
 		}
 		else if ( this.cursor == this.last )
 		{
